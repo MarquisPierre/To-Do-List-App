@@ -4,7 +4,7 @@ const app = express()
 const port = 3000
 let items = []
 
-console.log(items.length )
+
 app.set('view engine' , 'ejs')
 app.use(bodyParser.urlencoded({extended: true}))
 app.use("/public", express.static("public"))
