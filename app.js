@@ -3,6 +3,7 @@ const bodyParser = require("body-parser")
 const app = express()
 const port = 3000
 let items = []
+let workItems = []
 
 
 app.set('view engine' , 'ejs')
