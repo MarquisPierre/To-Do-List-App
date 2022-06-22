@@ -6,6 +6,9 @@ body{
       
 }
 
+.title{
+    text-align: center;
+}
 .item{
     min-height: 70px;
     display: flex;
@@ -26,4 +29,9 @@ body{
  
 .btn{
     margin: 2%;
+}
+
+
+footer{
+   text-align: center;
 }
