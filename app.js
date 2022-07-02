@@ -11,7 +11,7 @@ app.set('view engine' , 'ejs')
 app.use(bodyParser.urlencoded({extended: true}))
 app.use("/public", express.static("public"))
 
-mongoose.connect('mongodb+srv://admin-marquis:Tamashi20@cluster0.o99un.mongodb.net/todolistDB')
+mongoose.connect('mongodb+srv://admin-marquis:<Password>@cluster0.o99un.mongodb.net/todolistDB')
 
 const itemsSchema = new mongoose.Schema({
   name: String
