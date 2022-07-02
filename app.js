@@ -4,7 +4,7 @@ const mongoose = require("mongoose")
 
 
 const app = express()
-const port = 3000
+let port = process.env.PORT
 
 
 app.set('view engine' , 'ejs')
@@ -96,6 +96,11 @@ app.post("/delete", (req,res) => {
 
 })
 
+
+
+if (port == null || port == ""){
+  port = 3000
+}
 app.listen(port, ()=>{
     console.log(`Server is up and running on port ${port}`)
 })
