@@ -11,7 +11,7 @@ app.set('view engine' , 'ejs')
 app.use(bodyParser.urlencoded({extended: true}))
 app.use("/public", express.static("public"))
 
-mongoose.connect('mongodb://localhost:27017/todolistDB')
+mongoose.connect('mongodb+srv://admin-marquis:Tamashi20@cluster0.o99un.mongodb.net/todolistDB')
 
 const itemsSchema = new mongoose.Schema({
   name: String
@@ -38,6 +38,9 @@ const defaultItems = [item1, item2, item3]
 
 
 
+
+
+
 app.get("/" , (req, res)=>{
 
 
@@ -53,10 +56,12 @@ app.get("/" , (req, res)=>{
        });
         res.redirect("/")
     }else{
+      console.log(foundItems)
       res.render("list" , {listTitle: "Today" , newListItems: foundItems})
     }
   });
 });
+
 
 
 
@@ -74,6 +79,8 @@ app.post("/" , (req, res)=>{
 });
 
 
+
+
 app.post("/delete", (req,res) => {
   const checkedItemId = req.body.checkbox
 
@@ -88,24 +95,6 @@ app.post("/delete", (req,res) => {
 
 
 })
-
-
-
-
-app.get("/work" , (req, res) =>{
-    res.render("list" , {listTitle: "Work List", newListItems: workItems})
-})
-app.post("/work" , (req, res) => {
-    
-    let item = req.body.newItem
-    workItems.push(item)
-    res.redirect("/work")
-})
-app.get('/about', (req, res) => {
-  res.render("about")
-})
-
-
 
 app.listen(port, ()=>{
     console.log(`Server is up and running on port ${port}`)
