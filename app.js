@@ -6,7 +6,6 @@ const mongoose = require("mongoose")
 const app = express()
 let port = process.env.PORT
 
-
 app.set('view engine' , 'ejs')
 app.use(bodyParser.urlencoded({extended: true}))
 app.use("/public", express.static("public"))
